@@ -1,0 +1,32 @@
+.footer{
+   padding: 0 0 0 0;
+    &__container{
+        padding: 70px 0;
+        background: #6366F1;
+        &__title{
+            display: flex;
+            justify-content: center;
+           h1{
+            color: #fff;
+            // font-family: 'Inter';
+            font-style: normal;
+            font-weight: 500;
+            font-size: 48px;
+            line-height: 48px;
+            text-align: center;
+           }
+        }
+        &__description{
+            display: flex;
+            justify-content: center;
+            i{
+                padding: 0 10px;
+                cursor: pointer;
+            }
+        }
+    }
+}
+
+.fa-github,.fa-facebook,.fa-gitlab,.fa-linkedin{
+    color: #fff;
+}

@@ -1,0 +1,236 @@
+.main-header{
+    padding: 0 72px;
+    @media screen and (max-width:480px) {
+        padding: 0 15px;
+    }
+}
+.header{
+    width: 100%;
+    padding: 1em 0;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-between;
+    align-items: center;
+
+    &__left,&__right{
+        width: 50%;
+    }
+    &__right{
+        @media screen and (max-width:480px) {
+            width: 100%;
+        }
+    }
+    &__left{
+        border-radius: 100px;
+        background-color: #eeebff;
+        width: 42px;
+        height: 42px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        @media screen and (max-width:480px) {
+            display: none;
+        }
+    }
+    &__button{
+        border: none;
+        color: #6366F1;
+        background: transparent;
+        display: none;
+
+        @media screen and (max-width:480px) {
+            display: flex;
+        }
+    }
+    &__svg{
+        width: 2em;
+        height: 2em;
+    }
+    &__nav{
+        @media screen and (max-width:480px) {
+            width: 100%;
+            display: none;
+            flex-flow: column nowrap;
+            justify-content: center;
+            align-items: center;
+            &--activo{
+                display: flex;
+                justify-content: center;
+                align-items: center;
+            }
+        }
+    }
+    &__ul{
+        display: flex;
+        flex-flow: row nowrap;
+        justify-content: flex-end;
+        align-items: center;
+        @media screen and (max-width:480px) {
+            flex-direction: column;
+
+        }
+        &__li{
+            margin: 0 .5em;
+            // font-family: 'Inter';
+            font-style: normal;
+            font-weight: 500;
+            font-size: 18px;
+            line-height: 28px;
+            list-style: none;
+            color: #6B7280;
+            align-self: center;
+            transition: all .2s ease-in-out;
+            @media screen and (max-width:480px) {
+                margin: .5em 0;
+            }
+        }
+        &__li:hover{
+            color:#6366F1;
+            transform: scale(1.1);
+        }
+        button{
+          // background: #FFFFFF;
+          background: #6366F1;
+          border: 1px solid #6366F1;
+            border-radius: 6px;
+            padding: 8px 25px;
+            gap: 10px;
+            cursor: pointer;
+            transition: all .2s ease-in-out;
+            @media screen and (max-width:480px) {
+                margin-top: 10px;
+            }
+            h3{
+                font-style: normal;
+                font-weight: 500;
+                font-size: 18px;
+                // color: #6366F1;
+                color: #FFFFFF;
+                margin: 0;
+            }
+        }
+        button:hover{
+            background: #6366F1;
+            border: 1px solid #FFFFFF;
+            h3{
+                color: #FFFFFF;
+            }
+        }
+    }
+
+}
+
+.header-fixed{
+    // position: fixed;
+    width: 100%;
+    background-color: #fff;
+}
+
+/*MENU HAMBURGUESA*/
+.hamburger-menu {
+    // margin: 2rem;
+    margin: 1rem;
+    display: flex;
+    flex-flow: column wrap;
+    justify-content: space-between;
+    height: 2.5rem;
+    width: 2.5rem;
+    cursor: pointer;
+  }
+  .bar-top,
+  .bar-middle,
+  .bar-bottom {
+    height: 5px;
+    background: #6366F1;
+    border-radius: 5px;
+    margin: 3px 10px 3px 5px;
+    transform-origin: left;
+    transition: all 0.5s;
+  }
+
+  .active {
+    .bar-top {
+      transform: rotate(40deg);
+    }
+  }
+  .active {
+    .bar-middle {
+      transform: translateX(1rem);
+      opacity: 0;
+    }
+  }
+  .active {
+    .bar-bottom {
+      transform: rotate(-39deg);
+    }
+  }
+  .hamburger-menu{
+    display: none;
+    @media screen and (max-width:480px) {
+        display: flex;
+    }
+}
+// .test{
+//    display: flex;
+//    justify-content: center;
+//    align-items: center;
+// }
+/*FIN MENU HAMBURGUESA*/
+.colapso{
+    max-height: 0;
+
+    overflow: visible;
+    @media screen and (max-width:480px) {
+        overflow: hidden;
+    }
+
+    transition: all 0.2s ease-out;
+}
+
+.animate-btn:hover{
+  animation: shaking 2s infinite;
+}
+@keyframes shaking{
+  10%{
+    transform: scale(1.05) rotate(5deg); // para que gire 5gradoso
+  }
+  20%{
+    transform: scale(1.05) rotate(-5deg);// para que gire -5 grados
+  }
+  30%{
+    transform: scale(1.05) rotate(5deg); // para que gire 5 grados
+  }
+  40%{
+    transform: none;//desaparecer
+  }
+}
+
+/*
+  Toggle
+*/
+.container-toggle{
+  position: relative;
+  width: 80px;
+  height: 40px;
+  border: 1px solid #cdc3c3;
+  border-radius: 20px;
+  margin-left: 10px;
+}
+.toggle{
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 40px;
+  height: 40px;
+  transform: scale(.7);
+  background-color: #f3f3f3;
+  border-radius: 25px;
+  box-shadow: 3px 3px 8px #a7a0a0;
+
+}
+
+.container-toggle.active .toggle{
+  left: 40px;
+  background: #6366F1;
+}
+

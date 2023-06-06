@@ -1,0 +1,66 @@
+.experience{
+    padding: 36px 72px;
+    @media screen and (max-width:480px) {
+        padding: 36px 15px;
+    }
+    &__container{
+        &__title{
+            h1{
+                margin: 0;
+                // font-family: 'Inter';
+                font-style: normal;
+                font-weight: 600;
+                font-size: 48px;
+                line-height: 48px;
+                text-align: center;
+                color: #1F2937;
+            }
+        }
+        &__header{
+            padding: 25px 0;
+            &__flex{
+                display: flex;
+                justify-content: space-between;
+                &__item-company{
+                    width: 40%;
+                }
+                &__item-role{
+                    width: 40%;
+                }
+                &__item-year{
+                    width: 20%;
+                }
+                &__item-company,&__item-role,&__item-year{
+                    // font-family: 'Inter';
+                    font-style: normal;
+                    font-weight: 500;
+                    font-size: 16px;
+                    line-height: 24px;
+                    color: #6B7280;
+                }
+            }
+        }
+        &__row{
+            padding: 20px 0;
+            display: flex;
+            justify-content: space-between;
+            &__item-local{
+                width: 40%;
+            }
+            &__item-role{
+                width: 40%;
+            }
+            &__item-year{
+                width: 20%;
+            }
+            &__item-local, &__item-role,&__item-year{
+                // font-family: 'Inter';
+                    font-style: normal;
+                    font-weight: 400;
+                    font-size: 16px;
+                    line-height: 24px;
+                    color: #6B7280;
+            }
+        }
+    }
+}

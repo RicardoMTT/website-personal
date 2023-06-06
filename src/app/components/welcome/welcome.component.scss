@@ -1,0 +1,80 @@
+
+  @media (max-width: 767px) {
+
+    .service-title {
+      text-align: center;
+    }
+    .services {
+      flex-direction: column;
+      width: 100%;
+      .service {
+        flex-direction: column;
+        width: 100%;
+        .content {
+          &.min {
+            max-width: unset;
+          }
+        }
+      }
+    }
+
+    .requests {
+      flex-direction: column;
+      .status-title {
+        text-align: center;
+      }
+      & > div {
+        width: 100%;
+        &:first-child {
+          margin-bottom: 30px;
+        }
+        .d-flex.justify-content-between {
+          flex-direction: column;
+          .status {
+            &:first-child {
+              margin-bottom: 17px;
+            }
+          }
+        }
+      }
+    }
+    .allWelcome {
+      top: 130px !important;
+    }
+  }
+
+
+  .allWelcome{
+    position: absolute;
+    right: 0px;
+    display: flex;
+    justify-content: flex-end;
+    z-index: 100;
+    box-shadow: 0 6px 15px 0 rgba(31, 47, 51, 0.1);
+    top: 30px;
+    .welcome{
+      background: #ffffff;
+      color: #50535a;
+      font-size: 14px;
+      width: 300px;
+      cursor: pointer;
+      -webkit-transition: width 1.5s;
+      transition: width 1.5s;
+      .welcome-message{
+        padding: 10px 10px 10px 10px;
+      }
+    }
+    .welcomeClick{
+      width: 5px;
+      background: #ffffff;
+      color: #50535a;
+      font-size: 14px;
+      cursor: pointer;
+      transition: width 1.5s;
+      -webkit-transition: width 1.5s;
+      .welcome-message{
+        padding: 10px 10px 10px 10px;
+      }
+    }
+
+  }

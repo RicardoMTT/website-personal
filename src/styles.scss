@@ -1,1 +1,48 @@
 /* You can add global styles to this file, and also import other style files */
+/* You can add global styles to this file, and also import other style files */
+:root {
+    --default-font-family: "Poppins", sans-serif;
+    --body-bg-color: #f5f5f5;
+    --default-text-color: #333;
+    --base-separation: 1rem;
+    --half-separation: calc(var(--base-separation) / 2);
+    --double-separation: calc(var(--base-separation) * 2);
+    --primary-color: #5e00ea;
+  }
+  
+  body,html{
+      padding: 0;
+      margin: 0;
+      scroll-behavior: smooth;
+  }
+  
+  *{
+    font-family: 'Manrope', sans-serif;
+  }
+  
+  .progress-container {
+      width: 100%;
+      height: 4px;
+      background: #ccc;
+      overflow: hidden;
+    }
+  
+    .progress-bar {
+      background: #8781e5;
+      width: 0%;
+      transition-timing-function: ease-out;
+      transition: width 0.5s;
+      height: 100vh;
+    }
+  
+    // .sticky {
+    //   background: white;
+    //   position: fixed;
+    //   top: 0;
+    //   width: 100%;
+    // }
+  
+    // .sticky + .content {
+    //   padding-top: 102px;
+    // }
+  

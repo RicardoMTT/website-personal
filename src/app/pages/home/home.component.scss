@@ -1,0 +1,17 @@
+
+.btn-up{
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 3;
+    cursor: pointer;
+    transition: all 0.7s ease-in-out;
+    border: none;
+    &:hover{
+        background-color: #6366F1;
+        color: #fff;
+    }
+}
+.fa-arrow-up{
+    color: #6366F1;
+}

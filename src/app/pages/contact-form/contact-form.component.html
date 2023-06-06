@@ -1,0 +1,59 @@
+<div class="contact-form" id="contactme">
+  <div class="contact-form__main" [formGroup]="contactFormFG">
+    <div class="contact-form__main__title">
+      <h1 class="contact-title">Contact me</h1>
+    </div>
+
+    <div class="contact-form__main__email">
+      <label for="first-name" class="ha-screen-reader">E-mail</label>
+      <input
+        id="first-name"
+        class="field__input"
+        placeholder="Enter your full name"
+        formControlName="email"
+        (blur)="onBlur()"
+      />
+      <span
+        *ngIf="
+          contactFormFG.get('email')?.dirty &&
+          contactFormFG.get('email')?.errors?.['minlength']
+        "
+        class="error"
+      >
+        El email es requerido
+      </span>
+    </div>
+
+    <div class="contact-form__main__description">
+      <label for="first-name" class="ha-screen-reader">Description</label>
+      <textarea
+        name="description"
+        id="description"
+        cols="30"
+        rows="1"
+        formControlName="description"
+      ></textarea>
+      <span
+        class="error"
+        *ngIf="
+          contactFormFG.get('description')?.dirty &&
+          contactFormFG.get('description')?.errors?.['minlength']
+        "
+      >
+        La descripción es requerida
+      </span>
+    </div>
+
+    <div>
+      <p>Genre</p>
+      <app-colors [options]="demoProduct.colors" formControlName="genre"></app-colors>
+    </div>
+
+
+    <div class="contact-form__main__btn">
+      <button [disabled]="!this.contactFormFG.valid" (click)="sendMessage()">
+        <span>Send</span>
+      </button>
+    </div>
+  </div>
+</div>

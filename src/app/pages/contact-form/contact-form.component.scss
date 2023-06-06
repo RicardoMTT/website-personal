@@ -1,0 +1,90 @@
+.contact-form{
+    padding: 36px 72px;
+    @media screen and (max-width:480px) {
+        padding: 36px 15px;
+    }
+    &__main{
+        &__title{
+            h1{
+                margin: 0;
+                // font-family: 'Inter';
+                font-style: normal;
+                font-weight: 600;
+                font-size: 48px;
+                line-height: 48px;
+                text-align: center;
+                color: #1F2937;
+            }
+        }
+        &__email,&__description{
+            label{
+                // font-family: "Open Sans";
+                font-style: normal;
+                font-weight: 400;
+                font-size: 14px;
+                line-height: 27px;
+                color: #374A59;
+            }
+        }
+        &__email{
+            display: flex;
+            flex-direction: column;
+        }
+
+        &__description{
+            display: flex;
+            flex-direction: column;
+            margin-top: 30px;
+        }
+
+        &__btn{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            button{
+                padding: 15px 30px;
+                width: 200px;
+                color: white!important;
+                background-color: #6366F1;
+                border: none;
+                text-align: center;
+                margin: 30px;
+                cursor: pointer;
+                span{
+                    display: block;
+                    color: white!important;
+                    // font-family: 'Inter';
+                    font-style: normal;
+                    font-weight: 500;
+                    font-size: 18px;
+                    line-height: 28px;
+                    border-radius: 5px;
+                }
+            }
+        }
+    }
+}
+
+.error{
+    color: #e72b2b;
+    display: block;
+    // font-family: 'Inter';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 18px;
+    margin-top: 5px;
+}
+input,textarea{
+    width:100%;
+    padding:10px;
+    box-sizing:border-box;
+    background:none;
+    outline:none;
+    border:0;
+    // font-family:'Montserrat',sans-serif;
+    transition:all .3s;
+    border-bottom:2px solid #9090a7
+}
+
+input:focus,
+textarea:focus{border-bottom:2px solid  #6366F1}
