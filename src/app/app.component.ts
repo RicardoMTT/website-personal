@@ -79,7 +79,7 @@ export class AppComponent {
       const todosData = await this.testService.loadTodos();
       this.todos = todosData as any;
     } catch (error) {
-      console.log('error',error);
+      console.log('errorrr',error);
     }
   }
 
