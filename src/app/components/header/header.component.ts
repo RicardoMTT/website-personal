@@ -40,11 +40,11 @@ export class HeaderComponent implements OnInit {
       for (; index < length; index++) {
         isModeDark
           ? (liElement[index].style.color = '#FFFFFF')
-          : (liElement[index].style.color = '#6B7280');
+          : (liElement[index].style.color = '#2B2726');
       }
 
       isModeDark
-        ? (headerElement.style.background = '#303030')
+        ? (headerElement.style.background = '#2B2726')
         : (headerElement.style.background = '#FFFFFF');
     });
   }

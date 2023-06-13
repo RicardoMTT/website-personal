@@ -14,13 +14,13 @@ export class BannerComponent implements OnInit {
   ngOnInit(): void {
     this.colorSchemaService.isDarkMode$.subscribe(isModeDark => {
       const headerElement  = document.querySelector(".banner") as HTMLElement;
-      isModeDark ? headerElement.style.background = "#303030" : headerElement.style.background = "#FFFFFF"
+      isModeDark ? headerElement.style.background = "#2B2726" : headerElement.style.background = "#FFFFFF"
       const parragraphElement  = document.querySelector(".parragraph") as HTMLElement;
-      isModeDark ? parragraphElement.style.color = "rgb(255, 255, 255)" : parragraphElement.style.color = "#6B7280"
+      isModeDark ? parragraphElement.style.color = "#2B2726" : parragraphElement.style.color = "#6B7280"
       const additionalhElement  = document.querySelector(".additional-info") as HTMLElement;
-      isModeDark ? additionalhElement.style.color = "rgb(255, 255, 255)" : additionalhElement.style.color = "#6B7280"
+      isModeDark ? additionalhElement.style.color = "#2B2726" : additionalhElement.style.color = "#6B7280"
       const bannerTitleElement  = document.querySelector(".banner-title") as HTMLElement;
-      isModeDark ? bannerTitleElement.style.color = "#6366F1" : bannerTitleElement.style.color = "#1F2937"
+      isModeDark ? bannerTitleElement.style.color = "#2B2726" : bannerTitleElement.style.color = "#1F2937"
     })
   }
 

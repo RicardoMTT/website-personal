@@ -1,3 +1,5 @@
+@import '../../../styles.scss';
+
 .total-repos{
     padding: 36px 72px;
     h1{
@@ -33,7 +35,7 @@
                 width: 25%;
                 height: 100%;
                 // padding: 32px 0;
-                background-color: #6366F1;
+                background-color: $primary-color;
                 border-radius: 10px 0px 0px 10px;
                 &__main{
                     height: 100%;
@@ -55,11 +57,11 @@
                         display: flex;
                         cursor: pointer;
                         i{
-                            color: #6366F1;
+                            color: $primary-color;
                             margin-left: 10px;
                         }
                         span{
-                            color: #6366F1;
+                            color: $primary-color;
                             font-weight: 500;
                         }
                     }

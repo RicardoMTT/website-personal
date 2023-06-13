@@ -1,4 +1,6 @@
 
+@import '../../../styles.scss';
+
 .btn-up{
     position: fixed;
     bottom: 20px;
@@ -8,10 +10,10 @@
     transition: all 0.7s ease-in-out;
     border: none;
     &:hover{
-        background-color: #6366F1;
+        background-color: $primary-color;
         color: #fff;
     }
 }
 .fa-arrow-up{
-    color: #6366F1;
+    color: $primary-color;
 }

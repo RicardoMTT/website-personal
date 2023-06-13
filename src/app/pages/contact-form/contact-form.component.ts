@@ -47,10 +47,10 @@ export class ContactFormComponent implements OnInit {
       const labelsElement  = document.querySelectorAll("label");
       var index = 0, length = labelsElement.length;
       for ( ; index < length; index++) {
-        isModeDark ? labelsElement[index].style.color = "rgb(255, 255, 255)" : labelsElement[index].style.color = "#374A59"
+        isModeDark ? labelsElement[index].style.color = "#2B2726" : labelsElement[index].style.color = "#374A59"
       }
       isModeDark ? h1Element.style.color = "#6366F1" : h1Element.style.color = "#1F2937"
-      isModeDark ? contactFormElement.style.background = "rgb(48, 48, 48)" : contactFormElement.style.background = "white"
+      isModeDark ? contactFormElement.style.background = "#2B2726" : contactFormElement.style.background = "white"
 
     })
 

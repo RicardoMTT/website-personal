@@ -14,7 +14,7 @@ export class PhraseComponent implements OnInit {
     this.colorSchemaService.isDarkMode$.subscribe(isModeDark => {
       const phraseMainElement  = document.querySelector(".phrase-main") as HTMLElement;
       const phraseElement  = document.querySelector(".phrase-content") as HTMLElement;
-      isModeDark ? phraseMainElement.style.background = "rgb(48, 48, 48)" : phraseMainElement.style.background = "#FFFFFF"
+      isModeDark ? phraseMainElement.style.background = "#2B2726" : phraseMainElement.style.background = "#FFFFFF"
       isModeDark ? phraseElement.style.color = "rgb(255, 255, 255)" : phraseElement.style.color = "#1F2937"
     })
 

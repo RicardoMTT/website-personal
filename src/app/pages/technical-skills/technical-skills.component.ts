@@ -15,7 +15,7 @@ export class TechnicalSkillsComponent implements OnInit {
   ngOnInit(): void {
     this.colorSchemaService.isDarkMode$.subscribe(isModeDark => {
       const phraseMainElement  = document.querySelector(".technical-skills-main") as HTMLElement;
-      isModeDark ? phraseMainElement.style.background = "rgb(48, 48, 48)" : phraseMainElement.style.background = "#FFFFFF"
+      isModeDark ? phraseMainElement.style.background = "#2B2726" : phraseMainElement.style.background = "#FFFFFF"
 
       const pElement  = document.querySelectorAll("p");
       const title1Element  = document.querySelector(".title1") as HTMLElement;

@@ -1,3 +1,5 @@
+@import '../../../styles.scss';
+
 .phrase-main{
     padding: 40px 72px;
     @media screen and (max-width:480px) {
@@ -12,7 +14,7 @@
         color: #1F2937;
         margin: 0;
         span{
-            color: #6366F1;
+            color: $primary-color;
         }
     }
 }
