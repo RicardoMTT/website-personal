@@ -172,12 +172,10 @@
         display: flex;
     }
 }
-// .test{
-//    display: flex;
-//    justify-content: center;
-//    align-items: center;
-// }
+
+
 /*FIN MENU HAMBURGUESA*/
+
 .colapso{
     max-height: 0;
 
@@ -214,25 +212,49 @@
   position: relative;
   width: 80px;
   height: 40px;
-  border: 1px solid #cdc3c3;
   border-radius: 20px;
   margin-left: 10px;
 }
-.toggle{
+
+.checkbox {
+  opacity: 0;
   position: absolute;
-  top: 0;
-  left: 0;
-  width: 40px;
-  height: 40px;
-  transform: scale(.7);
-  background-color: #f3f3f3;
-  border-radius: 25px;
-  box-shadow: 3px 3px 8px #a7a0a0;
-
 }
 
-.container-toggle.active .toggle{
-  left: 40px;
-  background: $primary-color;
+.checkbox-label {
+  background-color: rgb(43, 39, 38);
+  width: 50px;
+  height: 32px;
+  border-radius: 50px;
+  position: relative;
+  padding: 5px;
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border: 1px solid #fff;
 }
 
+.checkbox-label .ball {
+  background-color: #fff;
+  width: 22px;
+  height: 22px;
+  position: absolute;
+  left: 6px;
+  top: 10px;
+  border-radius: 50%;
+  transition: transform 0.2s linear;
+}
+
+/*Cuando este checkeado que se traslade a la derecha*/
+.checkbox:checked + .checkbox-label .ball {
+  transform: translateX(24px);
+}
+
+.noon{
+  position: relative;
+  right: 2px;
+}
+/*
+  End Toggle
+*/

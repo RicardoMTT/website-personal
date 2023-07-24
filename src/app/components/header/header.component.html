@@ -40,12 +40,17 @@
                 <h3>Donwload CV</h3>
               </button>
               <div class="container-toggle" style="margin-top: 20px;">
-                <div class="toggle" (click)="toggle()"></div>
+                <input type="checkbox" (change)="toggle()" class="checkbox" id="checkbox">
+                <label for="checkbox" class="checkbox-label">
+                  <img src="assets/sol.png" width="20" height="20" alt="noon">
+                  <img src="assets/luna.png" class="noon" width="20" height="20" alt="luna">
+  
+                  <span class="ball"></span>
+                </label>
               </div>
             </ul>
           </nav>
         </ng-container>
-
         <nav
           class="header__nav"
           [ngClass]="{ 'header__nav--activo': active }"
@@ -60,17 +65,19 @@
               Experience
             </li>
             <button class="animate-btn" (click)="downloadPDF()">
-              <h3>CV</h3>
+              <h3>CV</h3>  
             </button>
             <div class="container-toggle">
-              <div class="toggle" (click)="toggle()"></div>
+              <input type="checkbox" (change)="toggle()" class="checkbox" id="checkbox">
+              <label for="checkbox" class="checkbox-label">
+                <img src="assets/sol.png" width="20" height="20" alt="noon">
+                <img src="assets/luna.png" class="noon" width="20" height="20" alt="luna">
+                <span class="ball"></span>
+              </label>
             </div>
           </ul>
         </nav>
       </div>
     </header>
   </div>
-  <!-- <div class="progress-container">
-    <div class="progress-bar" id="scrollBar"></div>
-  </div> -->
 </div>
