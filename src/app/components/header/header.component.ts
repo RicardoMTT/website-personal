@@ -60,9 +60,7 @@ export class HeaderComponent implements OnInit {
     this.active = !this.active;
   }
 
-  toggle() {
-    console.log('a');
-    
+  toggle() {    
     this.currentValueDarkMode = !this.currentValueDarkMode;
     let toggle = document.querySelector('.container-toggle') as any;
     toggle.classList.toggle('active');

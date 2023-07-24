@@ -66,7 +66,4 @@ export class ContactFormComponent implements OnInit {
     // Call to service
   }
 
-  onBlur() {
-    console.log('on blur');
-  }
 }
