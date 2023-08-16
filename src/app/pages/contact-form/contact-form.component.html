@@ -10,7 +10,7 @@
         id="first-name"
         class="field__input"
         placeholder="Enter your full name"
-        formControlName="email" 
+        formControlName="email"
       />
       <span
         *ngIf="
@@ -51,7 +51,7 @@
 
     <div class="contact-form__main__btn">
       <button [disabled]="!this.contactFormFG.valid" (click)="sendMessage()">
-        <span>Send</span>
+        <span>{{loading ? 'Sending...' : 'Send'}}</span>
       </button>
     </div>
   </div>
