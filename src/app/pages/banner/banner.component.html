@@ -9,19 +9,17 @@
         <span
 
         class="banner-title"
-          >Player / Music lover /
-          <p>Pet lover</p></span
+          >{{ "title" | transloco }}</span
         >
       </div>
       <div class="banner__container__left__description">
         <p class="parragraph">
-          Hi, I’m Ricardo. I’m Software Developer. If you are looking for
-          Developer to build your brands and grow your business , I can help you.
+         {{ "bio" | transloco }}
         </p>
       </div>
       <div class="banner__container__left__buttons">
         <button class="banner__container__left__buttons__left"  (click)="redirectTo('contactme')">
-          <h4>Hire me</h4>
+          <h4>{{"mainButtonText" | transloco}}</h4>
         </button>
         <!-- <button
           class="banner__container__left__buttons__right"
@@ -31,7 +29,7 @@
         </button> -->
       </div>
       <div class="banner__container__left__available">
-        <p class="additional-info">I am currently open for part-time work.</p>
+        <p class="additional-info">{{"available" | transloco}}</p>
       </div>
     </div>
 

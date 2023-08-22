@@ -13,6 +13,7 @@ import { DialogComponent } from './components/dialog/dialog.component';
 import { WelcomeComponent } from './components/welcome/welcome.component';
 import { CardComponent } from './components/card/card.component';
 import { CardsComponent } from './components/cards/cards.component';
+import { TranslocoRootModule } from './transloco-root.module';
 
 @NgModule({
   declarations: [
@@ -26,7 +27,7 @@ import { CardsComponent } from './components/cards/cards.component';
     CardsComponent,
   ],
   imports: [HomeModule, BrowserModule, AppRoutingModule, HttpClientModule,
-    BrowserAnimationsModule,NoopAnimationsModule],
+    BrowserAnimationsModule,NoopAnimationsModule, TranslocoRootModule],
   providers: [],
   bootstrap: [AppComponent],
 })

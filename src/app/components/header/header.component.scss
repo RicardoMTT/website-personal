@@ -49,6 +49,8 @@
         height: 2em;
     }
     &__nav{
+        display: flex;
+        align-items: center;
         @media screen and (max-width:480px) {
             width: 100%;
             display: none;

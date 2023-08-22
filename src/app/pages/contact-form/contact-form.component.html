@@ -1,7 +1,7 @@
 <div class="contact-form" id="contactme">
   <div class="contact-form__main" [formGroup]="contactFormFG">
     <div class="contact-form__main__title">
-      <h1 class="contact-title">Contact me</h1>
+      <h1 class="contact-title">{{"contactMe" | transloco}}</h1>
     </div>
 
     <div class="contact-form__main__email">
@@ -51,7 +51,7 @@
 
     <div class="contact-form__main__btn">
       <button [disabled]="!this.contactFormFG.valid" (click)="sendMessage()">
-        <span>{{loading ? 'Sending...' : 'Send'}}</span>
+        <span>{{loading ? 'sending' : 'send'| transloco }}</span>
       </button>
     </div>
   </div>

@@ -5,6 +5,7 @@ import {
   ChangeDetectionStrategy,
   HostListener,
 } from '@angular/core';
+import { TranslocoService } from '@ngneat/transloco';
 import scroolIntoView from 'scroll-into-view';
 import { ColorSchemaService } from 'src/app/services/color-schema.service';
 
@@ -22,10 +23,17 @@ export class HeaderComponent implements OnInit {
   base64Image: any;
   base64Pdf: string = "";
   currentValueDarkMode: boolean = false;
+  currentLanguage: string = '';
+
   constructor(
     private http: HttpClient,
-    private colorSchemaService: ColorSchemaService
-  ) {}
+    private colorSchemaService: ColorSchemaService,
+    private translocoService: TranslocoService
+  ) {
+    this.currentLanguage = this.translocoService.getActiveLang();
+    console.log(this.currentLanguage);
+
+  }
 
   ngOnInit(): void {
     this.onResize();
@@ -60,7 +68,7 @@ export class HeaderComponent implements OnInit {
     this.active = !this.active;
   }
 
-  toggle() {    
+  toggle() {
     this.currentValueDarkMode = !this.currentValueDarkMode;
     let toggle = document.querySelector('.container-toggle') as any;
     toggle.classList.toggle('active');
@@ -159,5 +167,12 @@ export class HeaderComponent implements OnInit {
       .subscribe((data) => {
         this.createImageFromBlob(data);
       });
+  }
+
+  changeLanguage(language:string) {
+    this.translocoService.setActiveLang(language);
+    this.currentLanguage = language;
+    console.log(this.currentLanguage);
+
   }
 }

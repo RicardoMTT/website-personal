@@ -12,6 +12,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RepoComponent } from '../repos/repo/repo.component';
 import { CarouselComponent } from 'src/app/components/carousel/carousel.component';
 import { ColorsComponent } from 'src/app/components/colors/colors.component';
+import { TranslocoRootModule } from 'src/app/transloco-root.module';
 
 @NgModule({
   declarations: [
@@ -27,6 +28,7 @@ import { ColorsComponent } from 'src/app/components/colors/colors.component';
     CarouselComponent,
     ColorsComponent
   ],
-  imports: [CommonModule, FormsModule, ReactiveFormsModule],
+  imports: [CommonModule, FormsModule, ReactiveFormsModule,
+    TranslocoRootModule],
 })
 export class HomeModule {}

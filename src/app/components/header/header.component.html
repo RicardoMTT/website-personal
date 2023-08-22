@@ -44,28 +44,34 @@
                 <label for="checkbox" class="checkbox-label">
                   <img src="assets/sol.png" width="20" height="20" alt="noon">
                   <img src="assets/luna.png" class="noon" width="20" height="20" alt="luna">
-  
+
                   <span class="ball"></span>
                 </label>
               </div>
             </ul>
           </nav>
         </ng-container>
-        <nav
+        <nav *ngIf="!isResponsive"
           class="header__nav"
           [ngClass]="{ 'header__nav--activo': active }"
-          *ngIf="!isResponsive"
+
         >
+          <div>
+            <a [ngStyle]="{'border-bottom': currentLanguage === 'es' ? '1px solid #8E43ED' : '','color': currentValueDarkMode ? 'white' : 'black'}"
+            (click)="changeLanguage('es')">ES/</a>
+            <a [ngStyle]="{'border-bottom': currentLanguage === 'en' ? '1px solid #8E43ED' : '','color': currentValueDarkMode ? 'white' : 'black'}"
+            (click)="changeLanguage('en')">EN</a>
+          </div>
           <ul class="header__ul">
             <li class="header__ul__li" (click)="redirectTo('technical-skills')">
-              Services
+              {{"services" | transloco}}
             </li>
-            <li class="header__ul__li" (click)="redirectTo('works')">Works</li>
+            <li class="header__ul__li" (click)="redirectTo('works')">{{"works" | transloco}}</li>
             <li class="header__ul__li" (click)="redirectTo('experience')">
-              Experience
+              {{"experience" | transloco}}
             </li>
             <button class="animate-btn" (click)="downloadPDF()">
-              <h3>CV</h3>  
+              <h3>CV</h3>
             </button>
             <div class="container-toggle">
               <input type="checkbox" (change)="toggle()" class="checkbox" id="checkbox">
