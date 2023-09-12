@@ -8,7 +8,7 @@ export const CAROUSEL_DATA_ITEMS = [
         },
         subtitle: 'February 2020 - May 2021',
         link: '/',
-        image: 'https://res.cloudinary.com/dgjkpffot/image/upload/v1672004957/304886558_503768815087703_7347450461898942484_n_rgg2og.png'
+        image: 'assets/logo-cereza.webp'
     },
     {
         id: 2,
@@ -18,7 +18,7 @@ export const CAROUSEL_DATA_ITEMS = [
         },
         subtitle: 'Junio 2021 - current',
         link: '/',
-        image: 'https://media.licdn.com/dms/image/C4D0BAQHgTUVFpQAl_Q/company-logo_200_200/0/1656637293448?e=1680134400&v=beta&t=ueUjaZZCvhWf2MI0lYhcmnaV9MRnXaArGazkXscuitY'
+        image: 'assets/logo-nttdata.webp'
     },
     // {
     //     id: 3,
