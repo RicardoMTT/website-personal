@@ -24,16 +24,21 @@
     </div>
 
     <div class="contact-form__main__description">
-      <label for="first-name" class="ha-screen-reader-desc">Description</label>
+      <!--
+        Se asocia etiquetas label a controles de formulario por razones de accesibilidad y usabilidad
+       -->
+      <label for="description" class="ha-screen-reader-desc">Description</label>
       <textarea
         name="description"
         id="description"
         cols="30"
         rows="1"
         formControlName="description"
+        aria-describedby="description-error"
       ></textarea>
       <span
         class="error"
+        id="description-error"
         *ngIf="
           contactFormFG.get('description')?.dirty &&
           contactFormFG.get('description')?.errors?.['minlength']
