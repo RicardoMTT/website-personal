@@ -1,8 +1,13 @@
 image: node:latest
+#Pipeline:Proceso completo de ci/cd, consta de una series de stages
+#Stages:Fases de un pipeline, cada stage agrupa una serie de jobs,estos stages se ejecutan secuencialemente, a diferencia de los jobs que se ejecutan en paralelo para acelerar el proceso de ci/cd
+#Jobs:Son las unidades mas pequeñas de un pipeline
+
+
 #cache: {}
 #pipeline: Ejecución, en cada pipeline tendra sus stages
 cache: []
-# Etapas por los cuales va a pasar toda esta integración hasta su despliegue
+# Etapas por los cuales va a pasar toda esta integración hasta su despliegue, etapas del pipeline,cada etapa representa una fase de la canalización de CI/CD.
 stages:
   - build
   - test
