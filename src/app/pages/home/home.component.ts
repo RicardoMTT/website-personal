@@ -1,7 +1,8 @@
 import { DOCUMENT } from '@angular/common';
-import { Component, OnInit, HostListener, Inject } from '@angular/core';
+import { Component, OnInit, HostListener, Inject, ViewChild, ElementRef } from '@angular/core';
 import { ICarouselItem } from 'src/app/components/carousel/carousel.component';
 import { CAROUSEL_DATA_ITEMS } from 'src/app/constants/carousel.const';
+import { ChatService } from 'src/app/services/chat.service';
 import { ModalService } from 'src/app/services/modal.service';
 
 @Component({
@@ -10,26 +11,39 @@ import { ModalService } from 'src/app/services/modal.service';
   styleUrls: ['./home.component.scss'],
 })
 export class HomeComponent implements OnInit {
-  constructor(@Inject(DOCUMENT) private document: Document,
-  private modalService: ModalService) {}
+  error: boolean = false;
+  element:any;
+  @ViewChild('chatMessages', { read: ElementRef }) chatMessagesRef!: ElementRef;
+
+  constructor(
+    @Inject(DOCUMENT)
+    private document: Document,
+    private modalService: ModalService,
+    private chatService:ChatService) {
+
+  }
+
   public showButton = false;
   public showModal = false;
+  public message = '';
+  public messages:any[] = [];
   bodyText: string = "";
   public scrollHeigth = 600;
   public carouselData: ICarouselItem[] = CAROUSEL_DATA_ITEMS;
 
   ngOnInit(): void {
-    this.bodyText ="zzzzzz"
-  }
+    this.bodyText ="zzzzzz";
+    this.element = document.getElementById('chat-messages');
 
+  }
 
   openModal(id: string) {
     this.modalService.open(id);
-}
+  }
 
-closeModal(id: string) {
-    this.modalService.close(id);
-}
+  closeModal(id: string) {
+      this.modalService.close(id);
+  }
 
   @HostListener('window:scroll')
   onWindowScroll() {
@@ -40,5 +54,36 @@ closeModal(id: string) {
 
   redirectTop() {
     this.document.documentElement.scrollTop = 0;
+  }
+
+  showChat: boolean = false;
+
+  toggleChat() {
+    this.showChat = !this.showChat;
+  }
+
+  sendMessage(){
+
+    const requestJSON = {
+      message:this.message
+    }
+    this.messages.push({message:this.message,isUser:true})
+    this.message = '';
+
+    this.chatService.chatbot(requestJSON).subscribe(res => {
+      this.messages.push({message:res.message,isUser:false});
+      this.element.scrollTop = this.element.scrollHeight;
+      this.scrollToBottom();
+    },error =>{
+      console.log('err',error);
+      this.error = true;
+    })
+  }
+
+  scrollToBottom() {
+    if (this.chatMessagesRef) {
+      const chatMessages: HTMLElement = this.chatMessagesRef.nativeElement;
+      chatMessages.scrollTop = chatMessages.scrollHeight;
+    }
   }
 }

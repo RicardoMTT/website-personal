@@ -31,8 +31,6 @@ export class HeaderComponent implements OnInit {
     private translocoService: TranslocoService
   ) {
     this.currentLanguage = this.translocoService.getActiveLang();
-    console.log(this.currentLanguage);
-
   }
 
   ngOnInit(): void {
@@ -172,7 +170,5 @@ export class HeaderComponent implements OnInit {
   changeLanguage(language:string) {
     this.translocoService.setActiveLang(language);
     this.currentLanguage = language;
-    console.log(this.currentLanguage);
-
   }
 }

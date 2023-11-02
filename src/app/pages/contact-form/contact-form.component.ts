@@ -62,7 +62,7 @@ export class ContactFormComponent implements OnInit {
           : (labelsElement[index].style.color = '#374A59');
       }
       isModeDark
-        ? (h1Element.style.color = '#6366F1')
+        ? (h1Element.style.color = '#8E43ED')
         : (h1Element.style.color = '#1F2937');
       isModeDark
         ? (contactFormElement.style.background = '#2B2726')
@@ -81,7 +81,6 @@ export class ContactFormComponent implements OnInit {
     // Call to service
     this.emailService.sendEmail(email,'tricardo003@gmail.com',description,'Prueba correo para futura consulta producto').subscribe({
       next: (response) => {
-        console.log(response);
         if (response) {
           this.loading = false;
           alert('Correo enviado satisfactoriamente')

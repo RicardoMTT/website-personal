@@ -7,7 +7,28 @@
   <app-carousel [items]="carouselData"></app-carousel>
   <app-contact-form ></app-contact-form>
   <div class="fb-comments" data-href="https://ricardotovart.com/" data-width="100%" data-numposts="5"></div>
-
+  <div class="chat-button-container">
+    <button (click)="toggleChat()" class="chat-button">
+      Chat
+    </button>
+    <div [ngClass]="{'show-chat': showChat}" class="chat-box">
+      <div class="chat-content">
+        <!-- Mensajes del chat -->
+      <div class="chat-messages" id="chat-messages" #chatMessages>
+        <!-- Aquí van los mensajes del chat -->
+        <div *ngFor="let message of messages" class="message" [ngClass]="{'user-message': message.isUser, 'service-message': !message.isUser}">
+          {{ message.message }}
+        </div>
+        <div *ngIf="error" class="message" >
+          <span>Ha salido un error, escribe nuevamente tu consulta</span>
+        </div>
+      </div>
+      <!-- Input para escribir mensajes al final del chat -->
+        <input type="text" (keyup.enter)="sendMessage()" [(ngModel)]="message" class="chat-input"  placeholder="Escribe un mensaje..." />
+        <button (click)="sendMessage()">send</button>
+      </div>
+    </div>
+  </div>
 </div>
 <!--
 <app-loader></app-loader> -->

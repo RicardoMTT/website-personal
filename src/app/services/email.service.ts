@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { environment } from 'src/environments/environment';
 
 @Injectable({
   providedIn: 'root'
@@ -16,6 +17,6 @@ export class EmailService {
       description,
       subject
     }
-    return this.http.post<any>('https://send-email-nest.onrender.com',body)
+    return this.http.post<any>( environment.emailUrl,body)
   }
 }
