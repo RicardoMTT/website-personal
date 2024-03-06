@@ -34,11 +34,11 @@ build-npm-prod:
     - master
 
 test:
-  image: trion/ng-cli-karma
+  image: markhobson/node-chrome:latest
   stage: test
   script:
-    - npm install
-    - npm test -- --browsers=ChromeHeadless --watch=false
+    - npm link @angular/cli@11.2.6 # Para que funcione el comando ng
+    - ng test -- --browsers=ChromeHeadless --no-watch
   only:
     - master
 
