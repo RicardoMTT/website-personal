@@ -1,4 +1,4 @@
-image: node:latest
+image: node:18
 #Pipeline:Proceso completo de ci/cd, consta de una series de stages
 #Stages:Fases de un pipeline, cada stage agrupa una serie de jobs,estos stages se ejecutan secuencialemente, a diferencia de los jobs que se ejecutan en paralelo para acelerar el proceso de ci/cd
 #Jobs:Son las unidades mas pequeñas de un pipeline
@@ -33,14 +33,14 @@ build-npm-prod:
   only:
     - master
 
-# test:
-#   image: markhobson/node-chrome:latest
-#   stage: test
-#   script:
-#     - npm link @angular/cli@11.2.6 # Para que funcione el comando ng
-#     - npm test -- --browsers=ChromeHeadless --watch=false
-#   only:
-#     - master
+test:
+  image: trion/ng-cli-karma
+  stage: test
+  script:
+    - npm install
+    - npm test -- --browsers=ChromeHeadless --watch=false
+  only:
+    - master
 
 deploy-s3-prod:
   image: "python:3.6.6" # We use python because there is a well-working AWS Sdk

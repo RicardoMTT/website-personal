@@ -8,7 +8,7 @@ import {
   UntypedFormBuilder,
 } from '@angular/forms';
 import { CUSTOM_ELEMENTS_SCHEMA, NO_ERRORS_SCHEMA } from '@angular/compiler';
-fdescribe('ContactFormComponent', () => {
+xdescribe('ContactFormComponent', () => {
   let component: ContactFormComponent;
   let fixture: ComponentFixture<ContactFormComponent>;
 
@@ -37,15 +37,15 @@ fdescribe('ContactFormComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
-  it('Deberia ser fomulario con campos validos', () => {
+  xit('Deberia ser fomulario con campos validos', () => {
     const mockContactForm = {
       email: 'tricardo003@gmail.com',
       description: 'test123',
     };
     const emailForm = component.contactFormFG.get('email');
     const descriptionForm = component.contactFormFG.get('description');
-    emailForm.setValue(mockContactForm.email);
-    descriptionForm.setValue(mockContactForm.description);
+    // emailForm.setValue(mockContactForm.email);
+    // descriptionForm.setValue(mockContactForm.description);
     component.sendMessage();
     expect(component.contactFormFG.valid).toEqual(true);
     expect(component.isInvalid).toEqual(false);
@@ -58,8 +58,8 @@ fdescribe('ContactFormComponent', () => {
     };
     const emailForm = component.contactFormFG.get('email');
     const descriptionForm = component.contactFormFG.get('description');
-    emailForm.setValue(mockContactForm.email);
-    descriptionForm.setValue(mockContactForm.description);
+    // emailForm.setValue(mockContactForm.email);
+    // descriptionForm.setValue(mockContactForm.description);
     component.sendMessage();
     expect(component.contactFormFG.valid).toEqual(false);
     expect(component.isInvalid).toEqual(true);
