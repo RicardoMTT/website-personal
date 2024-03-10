@@ -26,7 +26,10 @@ export class ReposComponent implements OnInit {
       isModeDark ? totalReposElement.style.background = "#2B2726" : totalReposElement.style.background = "#FFFFFF"
     })
     this.repoService.getFirstSixRepo().subscribe((data: any ) => {
+
       this.totalRepos = data;
+      console.log(this.totalRepos);
+
     });
   }
 }

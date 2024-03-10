@@ -19,4 +19,8 @@ export class RepoComponent implements OnInit {
       }
     })
   }
+
+  openRepo(item:any){
+    window.open(item.html_url)
+  }
 }
