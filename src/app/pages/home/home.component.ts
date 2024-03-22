@@ -3,6 +3,7 @@ import { Component, OnInit, HostListener, Inject, ViewChild, ElementRef } from '
 import { ICarouselItem } from 'src/app/components/carousel/carousel.component';
 import { CAROUSEL_DATA_ITEMS } from 'src/app/constants/carousel.const';
 import { ChatService } from 'src/app/services/chat.service';
+import { GeminiService } from 'src/app/services/gemini.service';
 import { ModalService } from 'src/app/services/modal.service';
 
 @Component({
@@ -19,17 +20,18 @@ export class HomeComponent implements OnInit {
     @Inject(DOCUMENT)
     private document: Document,
     private modalService: ModalService,
-    private chatService:ChatService) {
+    private geminiService:GeminiService) {
 
   }
 
   public showButton = false;
   public showModal = false;
   public message = '';
-  public messages:any[] = [];
   bodyText: string = "";
+
   public scrollHeigth = 600;
   public carouselData: ICarouselItem[] = CAROUSEL_DATA_ITEMS;
+  public messages:any[] = [];
 
   ngOnInit(): void {
     this.bodyText ="zzzzzz";
@@ -62,22 +64,31 @@ export class HomeComponent implements OnInit {
     this.showChat = !this.showChat;
   }
 
-  sendMessage(){
+  async sendMessage(){
 
-    const requestJSON = {
-      message:this.message
-    }
-    this.messages.push({message:this.message,isUser:true})
+    const prompt = this.message;
+    this.error = false;
     this.message = '';
+    try {
 
-    this.chatService.chatbot(requestJSON).subscribe(res => {
-      this.messages.push({message:res.message,isUser:false});
-      this.element.scrollTop = this.element.scrollHeight;
-      this.scrollToBottom();
-    },error =>{
-      console.log('err',error);
+      this.messages.push({message:prompt,isUser:true})
+      setTimeout(()=>{
+        this.scrollToBottom();
+      },500)
+      const response = await this.geminiService.generateText(prompt)
+      this.messages.push({message:response,isUser:false});
+      setTimeout(()=>{
+        this.scrollToBottom();
+      },500)
+    } catch (error) {
+      console.log(error);
       this.error = true;
-    })
+      this.messages.push({message:'Ha habido un error intente nuevamente',error:true});
+      setTimeout(()=>{
+        this.scrollToBottom();
+      },500)
+    }
+
   }
 
   scrollToBottom() {

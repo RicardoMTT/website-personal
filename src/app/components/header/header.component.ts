@@ -112,7 +112,7 @@ export class HeaderComponent implements OnInit {
         : (liElement[index].style.color = '#6B7280');
     }
     this.sizeWindow = window.innerWidth;
-    if (this.sizeWindow < 667) {
+    if (this.sizeWindow < 768) {
       //mobile
       this.isResponsive = true;
     } else {

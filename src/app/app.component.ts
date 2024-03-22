@@ -7,6 +7,7 @@ import { EfemeridesService } from './services/efemerides.service';
 import { ICarouselItem } from './components/carousel/carousel.component';
 import { CAROUSEL_DATA_ITEMS } from './constants/carousel.const';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { GeminiService } from './services/gemini.service';
 
 @Component({
   selector: 'app-root',
@@ -33,10 +34,13 @@ export class AppComponent {
     public title: Title,
     private meta: Meta,
     private efemeridesService: EfemeridesService,
-    private http: HttpClient
-  ) {}
+    private geminiService:GeminiService
+  ) {
+    this.geminiService.initialize('AIzaSyDLPyTK8c7Y8UxrutMNlCW6Bof8WIkklpg');
+  }
 
   ngOnInit(): void {
+    this.generateResponse();
     this.loadTodos();
     this.title.setTitle('Home page');
     this.checkTimeOut();
@@ -61,6 +65,10 @@ export class AppComponent {
     this.efemeridesService.getEventToday(query).subscribe((response) => {
       this.efemerides = response[0].event;
     });
+  }
+
+  async generateResponse(){
+    const value = await this.geminiService.generateText('Tell me the name of the Peru"s capital')
   }
 
 

@@ -82,11 +82,15 @@
 }
 
 .user-message{
-  background-color: aqua;
+  background-color: #618b8b;
+  float: right; /* Coloca los mensajes del usuario a la derecha */
+  width: 80%; /* Establece el ancho al 80% del contenedor */
 }
 
 .service-message{
   background-color: #8E43ED;
+  float: left; /* Coloca los mensajes del servicio a la izquierda */
+  width: 80%; /* Establece el ancho al 80% del contenedor */
 }
 
 .message{

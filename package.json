@@ -22,7 +22,8 @@
     "rxjs": "~7.8.0",
     "scroll-into-view": "^1.16.2",
     "tslib": "^2.3.0",
-    "zone.js": "~0.12.0"
+    "zone.js": "~0.12.0",
+    "@google/generative-ai": "^0.1.1"
   },
   "devDependencies": {
     "@angular-devkit/build-angular": "^15.2.5",

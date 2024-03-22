@@ -16,16 +16,16 @@
         <!-- Mensajes del chat -->
       <div class="chat-messages" id="chat-messages" #chatMessages>
         <!-- Aquí van los mensajes del chat -->
-        <div *ngFor="let message of messages" class="message" [ngClass]="{'user-message': message.isUser, 'service-message': !message.isUser}">
+        <div *ngFor="let message of messages" class="message" [ngClass]="{'user-message': message.isUser, 'service-message': !message.isUser,'error':message.error}">
           {{ message.message }}
         </div>
-        <div *ngIf="error" class="message" >
+        <!-- <div *ngIf="error" class="error" >
           <span>Ha salido un error, escribe nuevamente tu consulta</span>
-        </div>
+        </div> -->
       </div>
       <!-- Input para escribir mensajes al final del chat -->
         <input type="text" (keyup.enter)="sendMessage()" [(ngModel)]="message" class="chat-input"  placeholder="Escribe un mensaje..." />
-        <button (click)="sendMessage()">send</button>
+        <button (click)="sendMessage()">Enviar</button>
       </div>
     </div>
   </div>
