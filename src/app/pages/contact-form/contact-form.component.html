@@ -1,5 +1,15 @@
+
 <div class="contact-form" id="contactme">
   <div class="contact-form__main" [formGroup]="contactFormFG">
+
+    <div class="contact-form__main__load-data" *ngIf="existsDataInLocalStorage">
+      <button (click)="onLoadFormValuesFromLocalStorage()">
+        <label>
+          Se encontraron datos almacenados localmente,click aquí para obtenerlos.
+        </label>
+      </button>
+    </div>
+
     <div class="contact-form__main__title">
       <h1 class="contact-title">{{"contactMe" | transloco}}</h1>
     </div>
@@ -53,7 +63,6 @@
       <p>Genre</p>
       <app-colors [options]="demoProduct.colors" formControlName="genre"></app-colors>
     </div>
-
 
     <div class="contact-form__main__btn">
       <button [disabled]="!this.contactFormFG.valid" (click)="sendMessage()">

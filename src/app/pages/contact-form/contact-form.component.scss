@@ -20,7 +20,16 @@
                 color: #1F2937;
             }
         }
-
+        &__load-data{
+          button{
+            background-color: $primary-color;
+            color: #fff;
+            border: none;
+            padding: 10px;
+            border-radius: 10px;
+            cursor: pointer;
+          }
+        }
         &__email,
         &__description {
             label {

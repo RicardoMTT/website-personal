@@ -1,10 +1,12 @@
 import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
 import {
-  UntypedFormGroup,
-  UntypedFormBuilder,
   Validators,
+  FormGroup,
+  FormBuilder,
 } from '@angular/forms';
-import { Colors } from 'src/app/models/color';
+import { ActivatedRoute } from '@angular/router';
+import { Subscription } from 'rxjs';
+import { Color, Colors } from 'src/app/models/color';
 import { Product } from 'src/app/models/product';
 import { ColorSchemaService } from 'src/app/services/color-schema.service';
 import { EmailService } from 'src/app/services/email.service';
@@ -15,8 +17,12 @@ import { EmailService } from 'src/app/services/email.service';
   styleUrls: ['./contact-form.component.scss'],
 })
 export class ContactFormComponent implements OnInit {
-  contactFormFG: UntypedFormGroup;
+  contactFormFG!: FormGroup;
   isInvalid: boolean = false;
+
+  formCreateContact = JSON.parse(localStorage.getItem('testLS') || '{}');
+
+
   demoProduct: Product = {
     id: 'cap',
     name: 'Gorra de Béisbol',
@@ -33,13 +39,44 @@ export class ContactFormComponent implements OnInit {
     ],
   };
   loading: boolean = false;
-  constructor(
-    private fb: UntypedFormBuilder,
-    private colorSchemaService: ColorSchemaService,
-    private emailService: EmailService
-  ) {
-    const defaultColor = this.demoProduct.colors[0];
+  existsDataInLocalStorage: boolean = false;
+  formChangesSubscription!: Subscription;
+  isValueChangesFormInitialized: boolean = false;
 
+  constructor(
+    private fb: FormBuilder,
+    private colorSchemaService: ColorSchemaService,
+    private emailService: EmailService,
+    private activatedRoute: ActivatedRoute
+  ) {
+    this.activatedRoute.parent?.params.subscribe(
+      params => {
+        this.createForm();
+        const formCreateConsultation = this.formCreateContact?.prueba;
+
+        // If there is data stored in Localstorage show message
+        if(formCreateConsultation){
+          this.existsDataInLocalStorage = true;
+        }else{
+          this.removeFormValuesFromLocalStorage();
+          // Create listener for form changes after 4 seconds to store in Localstorage
+          setTimeout(() => {
+            this.createFormTest();
+          }, 4000);
+        }
+      });
+  }
+
+  /**
+   * Remove form values from local storage
+   * @returns void
+   */
+  removeFormValuesFromLocalStorage() {
+    localStorage.removeItem('testLS');
+  }
+
+  createForm(){
+    const defaultColor = this.demoProduct.colors[0];
     this.contactFormFG = this.fb.group({
       email: ['', [Validators.required, Validators.minLength(6)]],
       description: ['', [Validators.required, Validators.minLength(6)]],
@@ -92,4 +129,56 @@ export class ContactFormComponent implements OnInit {
       }
     })
   }
+
+  onLoadFormValuesFromLocalStorage() {
+    this.loadFormValuesFromLocalStorage();
+    this.existsDataInLocalStorage = false;
+    if(!this.isValueChangesFormInitialized){
+      this.createFormTest();
+    }
+  }
+
+  loadFormValuesFromLocalStorage() {
+    const storedData = localStorage.getItem('testLS');
+    if (storedData) {
+      const formCreateConsultation = JSON.parse(storedData).prueba;
+      console.log(formCreateConsultation);
+
+      const defaultColor = this.demoProduct.colors.find(item => item.code ==formCreateConsultation.genre.code);
+      console.log(defaultColor);
+
+      this.contactFormFG.patchValue({
+        'email':formCreateConsultation.email,
+        'genre':defaultColor,
+        'description':formCreateConsultation.description,
+      });
+    }
+  }
+
+  createFormTest(){
+
+    this.isValueChangesFormInitialized = true;
+
+    /*
+    |---------------------------------------------------------------------------
+    | Save form values in local storage when form changes
+    |---------------------------------------------------------------------------
+    */
+    let formCreateContact = JSON.parse(localStorage.getItem('testLS') || '{}');
+
+    this.formChangesSubscription = this.contactFormFG.valueChanges.subscribe((value: any) => {
+      console.log(value);
+
+      const defaultColor = this.demoProduct.colors.find(item => item.code ==value.genre.code);
+
+      formCreateContact.prueba = {
+        email: value.email,
+        description: value.description,
+        genre:defaultColor
+      };
+
+      localStorage.setItem('testLS', JSON.stringify(formCreateContact));
+    });
+  }
+
 }

@@ -29,6 +29,7 @@ export class ColorsComponent implements OnInit, ControlValueAccessor {
       oara q el CVA refleje ese cambio en el DOM
   */
   writeValue(colorData:ColorData): void {
+    console.log(colorData);
 
     this.colorSelected = colorData;
   }
