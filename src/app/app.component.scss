@@ -1,0 +1,31 @@
+@import "../styles/mixins/flex-content.scss";
+.btn {
+  width: 300px;
+  height: 100px;
+  background-color: green;
+}
+.link-block {
+  display: block;
+}
+
+.link-inline {
+  display: inline;
+}
+
+.main-modal{
+  @include flex(column,center,center);
+  height: 100%;
+}
+
+
+.container{
+  overflow: auto;
+  display: flex;
+  scroll-snap-type: x mandatory;
+}
+
+.container .item{
+  flex-shrink: 0;
+  scroll-snap-align: start;
+  width: 300px;
+}

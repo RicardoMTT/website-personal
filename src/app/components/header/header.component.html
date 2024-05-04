@@ -1,0 +1,89 @@
+<div id="myHeader" class="header-fixed">
+  <div class="main-header">
+    <header class="header">
+      <div class="header__left">
+        <div>
+          <span style="transform: rotate(30deg)"
+          [ngStyle]="{'color': currentValueDarkMode ? '#7b61ff' : 'black'}"
+          >R</span>
+        </div>
+      </div>
+
+      <div class="header__right">
+        <ng-container *ngIf="isResponsive">
+          <div class="hamburger-menu" id="menu" (click)="test('toggleData')">
+            <div data-toggle="panelData" id="toggleData">
+              <div class="bar-top"></div>
+              <div class="bar-middle"></div>
+              <div class="bar-bottom"></div>
+            </div>
+          </div>
+          <nav
+            class="colapso"
+            id="panelData"
+            [ngClass]="{ 'header__nav--activo': active }"
+          >
+            <ul class="header__ul">
+              <li
+                class="header__ul__li"
+                (click)="redirectTo('technical-skills')"
+              >
+              Services
+            </li>
+              <li class="header__ul__li" (click)="redirectTo('works')">
+                Works
+              </li>
+              <li class="header__ul__li" (click)="redirectTo('experience')">
+                Experience
+              </li>
+              <button (click)="downloadPDF()">
+                <h3>Donwload CV</h3>
+              </button>
+              <div class="container-toggle mt-20">
+                <input type="checkbox" (change)="toggle()" class="checkbox" id="checkbox">
+                <label for="checkbox" class="checkbox-label">
+                  <img src="assets/sol.webp" width="20" height="20" alt="noon">
+                  <img src="assets/luna.webp" class="noon" width="20" height="20" alt="luna">
+
+                  <span class="ball"></span>
+                </label>
+              </div>
+            </ul>
+          </nav>
+        </ng-container>
+        <nav *ngIf="!isResponsive"
+          class="header__nav"
+          [ngClass]="{ 'header__nav--activo': active }"
+
+        >
+          <div>
+            <a [ngStyle]="{'border-bottom': currentLanguage === 'es' ? '1px solid #8E43ED' : '','color': currentValueDarkMode ? 'white' : 'black'}"
+            (click)="changeLanguage('es')">ES/</a>
+            <a [ngStyle]="{'border-bottom': currentLanguage === 'en' ? '1px solid #8E43ED' : '','color': currentValueDarkMode ? 'white' : 'black'}"
+            (click)="changeLanguage('en')">EN</a>
+          </div>
+          <ul class="header__ul">
+            <li class="header__ul__li" (click)="redirectTo('technical-skills')">
+              {{"services" | transloco}}
+            </li>
+            <li class="header__ul__li" (click)="redirectTo('works')">{{"works" | transloco}}</li>
+            <li class="header__ul__li" (click)="redirectTo('experience')">
+              {{"experience" | transloco}}
+            </li>
+            <button class="animate-btn" (click)="downloadPDF()">
+              <h3>CV</h3>
+            </button>
+            <div class="container-toggle">
+              <input type="checkbox" (change)="toggle()" class="checkbox" id="checkbox">
+              <label for="checkbox" class="checkbox-label">
+                <img src="assets/sol.webp" width="20" height="20" alt="noon">
+                <img src="assets/luna.webp" class="noon" width="20" height="20" alt="luna">
+                <span class="ball"></span>
+              </label>
+            </div>
+          </ul>
+        </nav>
+      </div>
+    </header>
+  </div>
+</div>

@@ -1,0 +1,262 @@
+@import '../../../styles.scss';
+
+.main-header{
+    padding: 0 72px;
+    @media screen and (max-width:768px) {
+        padding: 0 15px;
+    }
+}
+.header{
+    width: 100%;
+    padding: 1em 0;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-between;
+    align-items: center;
+
+    &__left,&__right{
+        width: 50%;
+    }
+    &__right{
+        @media screen and (max-width:768px) {
+            width: 100%;
+        }
+    }
+    &__left{
+        border-radius: 100px;
+        background-color: #eeebff;
+        width: 42px;
+        height: 42px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        @media screen and (max-width:768px) {
+            display: none;
+        }
+    }
+    &__button{
+        border: none;
+        color: $primary-color;
+        background: transparent;
+        display: none;
+
+        @media screen and (max-width:768px) {
+            display: flex;
+        }
+    }
+    &__svg{
+        width: 2em;
+        height: 2em;
+    }
+    &__nav{
+        display: flex;
+        align-items: center;
+        @media screen and (max-width:768px) {
+            width: 100%;
+            display: none;
+            flex-flow: column nowrap;
+            justify-content: center;
+            align-items: center;
+            &--activo{
+                display: flex;
+                justify-content: center;
+                align-items: center;
+            }
+        }
+    }
+    &__ul{
+        display: flex;
+        flex-flow: row nowrap;
+        justify-content: flex-end;
+        align-items: center;
+        @media screen and (max-width:768px) {
+            flex-direction: column;
+
+        }
+        &__li{
+            margin: 0 .5em;
+            // font-family: 'Inter';
+            font-style: normal;
+            font-weight: 500;
+            font-size: 18px;
+            line-height: 28px;
+            list-style: none;
+            color: #6B7280;
+            align-self: center;
+            transition: all .2s ease-in-out;
+            @media screen and (max-width:768px) {
+                margin: .5em 0;
+            }
+        }
+        &__li:hover{
+            color:$primary-color;
+            transform: scale(1.1);
+        }
+        button{
+          // background: #FFFFFF;
+          background: $primary-color;
+          border: 1px solid $primary-color;
+            border-radius: 6px;
+            padding: 8px 25px;
+            gap: 10px;
+            cursor: pointer;
+            transition: all .2s ease-in-out;
+            @media screen and (max-width:768px) {
+                margin-top: 10px;
+            }
+            h3{
+                font-style: normal;
+                font-weight: 500;
+                font-size: 18px;
+                // color: $primary-color;
+                color: #FFFFFF;
+                margin: 0;
+            }
+        }
+        button:hover{
+            background: $primary-color;
+            border: 1px solid #FFFFFF;
+            h3{
+                color: #FFFFFF;
+            }
+        }
+    }
+
+}
+
+.header-fixed{
+    // position: fixed;
+    width: 100%;
+    background-color: #fff;
+}
+
+/*MENU HAMBURGUESA*/
+.hamburger-menu {
+    // margin: 2rem;
+    margin: 1rem;
+    display: flex;
+    flex-flow: column wrap;
+    justify-content: space-between;
+    height: 2.5rem;
+    width: 2.5rem;
+    cursor: pointer;
+  }
+  .bar-top,
+  .bar-middle,
+  .bar-bottom {
+    height: 5px;
+    background: $primary-color;
+    border-radius: 5px;
+    margin: 3px 10px 3px 5px;
+    transform-origin: left;
+    transition: all 0.5s;
+  }
+
+  .active {
+    .bar-top {
+      transform: rotate(40deg);
+    }
+  }
+  .active {
+    .bar-middle {
+      transform: translateX(1rem);
+      opacity: 0;
+    }
+  }
+  .active {
+    .bar-bottom {
+      transform: rotate(-39deg);
+    }
+  }
+  .hamburger-menu{
+    display: none;
+    @media screen and (max-width:768px) {
+        display: flex;
+    }
+}
+
+
+/*FIN MENU HAMBURGUESA*/
+
+.colapso{
+    max-height: 0;
+
+    overflow: visible;
+    @media screen and (max-width:768px) {
+        overflow: hidden;
+    }
+
+    transition: all 0.2s ease-out;
+}
+
+.animate-btn:hover{
+  animation: shaking 2s infinite;
+}
+@keyframes shaking{
+  10%{
+    transform: scale(1.05) rotate(5deg); // para que gire 5gradoso
+  }
+  20%{
+    transform: scale(1.05) rotate(-5deg);// para que gire -5 grados
+  }
+  30%{
+    transform: scale(1.05) rotate(5deg); // para que gire 5 grados
+  }
+  40%{
+    transform: none;//desaparecer
+  }
+}
+
+/*
+  Toggle
+*/
+.container-toggle{
+  position: relative;
+  width: 80px;
+  height: 40px;
+  border-radius: 20px;
+  margin-left: 10px;
+}
+
+.checkbox {
+  opacity: 0;
+  position: absolute;
+}
+
+.checkbox-label {
+  background-color: rgb(43, 39, 38);
+  width: 50px;
+  height: 32px;
+  border-radius: 50px;
+  position: relative;
+  padding: 5px;
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border: 1px solid #fff;
+}
+
+.checkbox-label .ball {
+  background-color: #fff;
+  width: 22px;
+  height: 22px;
+  position: absolute;
+  left: 6px;
+  top: 10px;
+  border-radius: 50%;
+  transition: transform 0.2s linear;
+}
+
+/*Cuando este checkeado que se traslade a la derecha*/
+.checkbox:checked + .checkbox-label .ball {
+  transform: translateX(24px);
+}
+
+.noon{
+  position: relative;
+  right: 2px;
+}
+/*
+  End Toggle
+*/

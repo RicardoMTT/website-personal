@@ -1,0 +1,10 @@
+<div class="total-repos"  id="works">
+  <h1 class="title-repos">{{titulo}}</h1>
+  <div class="total-repos__container" *ngIf="totalRepos">
+    <app-repo
+      class="total-repos__container__item"
+      *ngFor="let item of totalRepos"
+      [item]="item"
+    ></app-repo>
+  </div>
+</div>

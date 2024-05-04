@@ -1,0 +1,10 @@
+<button
+  *ngFor="let color of options"
+  [title]="color.displayName"
+  [style.backgroundColor]="color.hex"
+  (click)="selectColor(color)"
+  [class.selected]="color.displayName === colorSelected?.displayName"
+
+></button>
+
+{{colorSelected?.displayName}}

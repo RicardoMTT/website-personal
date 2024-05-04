@@ -1,0 +1,22 @@
+<div class="allWelcome" (click)="showWelcome=!showWelcome" [ngStyle]="{'top': valueTop}">
+  <!-- <div class="flecha" >
+        <div >
+            <ng-template [ngIf]="showWelcome">
+                <img src="/assets/images/arrow-right-slide.svg" alt="arrow" width="6px" height="10px">
+            </ng-template>
+            <ng-template [ngIf]="!showWelcome">
+                <img src="/assets/images/arrow-left-slide.svg" alt="left" width="6px" height="10px">
+            </ng-template>
+        </div>
+    </div> -->
+  <div [ngClass]="{'welcome': showWelcome, 'welcomeClick': !showWelcome} ">
+
+    <div class="welcome-message" *ngIf="showWelcome">
+      <strong>Efemerides</strong>
+      <br>
+      <span>{{day}} de {{month}}</span>
+      <p>{{message}}</p>
+
+    </div>
+  </div>
+</div>

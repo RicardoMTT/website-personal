@@ -1,0 +1,28 @@
+<div class="item__logo">
+  <div class="item__logo__main">
+    <i class="fa fa-github fa-2x"></i>
+  </div>
+</div>
+<div class="item__description">
+  <div class="item__description__pd">
+    <div class="item__description__pd__language">
+      <span>{{ item.language }}</span>
+    </div>
+    <div class="item__description__pd__title">
+      <span>{{ item.name }}</span>
+    </div>
+
+    <div class="item__description__pd__paragraph">
+      <span
+        >Lorem ipsum dolor sit amet consectetur adipisicing elit. A ad tempore
+        commodi eius repellat quia provident explicabo labore recusandae eum
+        itaque error veniam eaque, sint laborum cum accusamus molestiae
+        incidunt.</span
+      >
+    </div>
+    <div class="item__description__pd__read-more">
+      <span (click)="openRepo(item)">View more ...</span>
+      <!-- <i  class="fa fa-arrow-right"></i> -->
+    </div>
+  </div>
+</div>

@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Ricardo Tovar</title>
+    <meta content="How to boost Angular Apps SEO" itemprop="name" />
+    <meta content="Mi sitio web" name="description" />
+    <base href="/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <script src="https://kit.fontawesome.com/b0db8d01ea.js" crossorigin="anonymous"></script>
+    <link rel="icon" type="image/x-icon" href="favicon.ico" />
+    <style>
+      .loader {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 100px;
+        height: 100px;
+      }
+
+      .loader span {
+        border: 0;
+        margin: 0;
+        width: 40%;
+        height: 40%;
+        position: absolute;
+        border-radius: 50%;
+        animation: spin 2s ease infinite;
+        transition: all 1s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+      }
+
+      .loader :first-child {
+        background: #216ad6;
+        animation-delay: -1.5s;
+      }
+
+      .loader :nth-child(2) {
+        background: #ffd960;
+        animation-delay: -1s;
+      }
+
+      .loader :first-child(3) {
+        background: #d7415d;
+        animation-delay: -0.5s;
+      }
+
+      .loader :last-child {
+        background-color: #1f95f2;
+      }
+      @keyframes spin {
+        0% {
+          transform: translate(0) scale(0);
+        }
+        25% {
+          transform: translate(200%) scale(1.5);
+        }
+        50% {
+          transform: translate(200%, 200%) scale(0);
+        }
+        75% {
+          transform: translate(0, 200%) scale(1.5);
+        }
+        100% {
+          transform: translate(0) scale(0);
+        }
+      }
+    </style>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@200&display=swap" rel="stylesheet">
+  </head>
+  <body>
+    <app-root>
+      <div class="loader">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+      <div id="fb-root"></div>
+<!-- <script async defer crossorigin="anonymous" src="https://connect.facebook.net/es_ES/sdk.js#xfbml=1&version=v15.0&appId=2475843882678598&autoLogAppEvents=1" nonce="NAm8Lt7V"></script> -->
+    </app-root>
+  </body>
+</html>

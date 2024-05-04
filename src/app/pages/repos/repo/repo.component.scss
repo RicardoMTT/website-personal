@@ -1,0 +1,74 @@
+@import '../../../../styles.scss';
+        .item{
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            @media screen and (max-width:768px) {
+                width: 100%;
+            }
+            &__logo{
+                width: 25%;
+                height: 100%;
+                // padding: 32px 0;
+                background-color: $primary-color;
+                border-radius: 10px 0px 0px 10px;
+                &__main{
+                    height: 100%;
+                    color: #fff;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                }
+            }
+            &__description{
+                // padding: 32px 0;
+                width: 75%;
+                height: 100%;
+                box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+                &__pd{
+                    padding: 20px;
+                    &__read-more{
+                        margin-top: 10px;
+                        display: flex;
+                        cursor: pointer;
+                        i{
+                            color: $primary-color;
+                            margin-left: 10px;
+                        }
+                        span{
+                            color: $primary-color;
+                            font-weight: 500;
+                        }
+                    }
+                    &__paragraph{
+                        span{
+                            // font-family: 'Open Sans';
+                            font-style: normal;
+                            font-weight: 400;
+                            font-size: 14px;
+                            line-height: 27px;
+                            color: #374A59;
+                        }
+                    }
+                    &__language{
+                        span{
+                            // font-family: 'Open Sans';
+                            font-style: normal;
+                            font-weight: 600;
+                            font-size: 20px;
+                            line-height: 27px;
+                            color: #6E798C;
+                        }
+                    }
+                    &__title{
+                        span{
+                            // font-family: 'DM Serif Display';
+                            font-style: normal;
+                            font-weight: 600;
+                            font-size: 22px;
+                            color: #081F32;
+                        }
+                    }
+                }
+            }
+        }

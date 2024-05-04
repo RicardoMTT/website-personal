@@ -1,0 +1,77 @@
+
+<div class="contact-form" id="contactme">
+  <div class="contact-form__main" [formGroup]="contactFormFG">
+
+    <div class="contact-form__main__load-data" *ngIf="existsDataInLocalStorage">
+      <button (click)="onLoadFormValuesFromLocalStorage()">
+        <label>
+          Se encontraron datos almacenados localmente,click aquí para obtenerlos.
+        </label>
+
+        <label class="white" (click)="onClosedAlertExistDataInLocalStorage()">
+          x
+        </label>
+      </button>
+    </div>
+
+    <div class="contact-form__main__title">
+      <h1 class="contact-title">{{"contactMe" | transloco}}</h1>
+    </div>
+
+    <div class="contact-form__main__email">
+      <label for="first-name" class="ha-screen-reader-email">E-mail</label>
+      <input
+        id="first-name"
+        class="field__input"
+        placeholder="Enter your full name"
+        formControlName="email"
+      />
+      <span
+        *ngIf="
+          contactFormFG.get('email')?.dirty &&
+          contactFormFG.get('email')?.errors?.['minlength']
+        "
+        class="error"
+      >
+        El email es requerido
+      </span>
+    </div>
+
+    <div class="contact-form__main__description">
+      <!--
+        Se asocia etiquetas label a controles de formulario por razones de accesibilidad y usabilidad
+       -->
+      <label for="description" class="ha-screen-reader-desc">Description</label>
+      <textarea
+        name="description"
+        id="description"
+        cols="30"
+        rows="1"
+        placeholder="Enter a description"
+        formControlName="description"
+        aria-describedby="description-error"
+      ></textarea>
+      <span
+        class="error"
+        id="description-error"
+        *ngIf="
+          contactFormFG.get('description')?.dirty &&
+          contactFormFG.get('description')?.errors?.['minlength']
+        "
+      >
+        La descripción es requerida
+      </span>
+    </div>
+
+    <div>
+      <p>Genre</p>
+      <app-colors [options]="demoProduct.colors" formControlName="genre"></app-colors>
+    </div>
+
+    <div class="contact-form__main__btn">
+      <button [disabled]="!this.contactFormFG.valid" (click)="sendMessage()">
+        <span>{{loading ? 'sending' : 'send'| transloco }}</span>
+      </button>
+    </div>
+  </div>
+</div>
