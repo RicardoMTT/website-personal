@@ -13,11 +13,16 @@
   }
 
   $primary-color: #8E43ED;
+  $white: #ffffff;
 
   body,html{
       padding: 0;
       margin: 0;
       scroll-behavior: smooth;
+  }
+
+  .mt-20{
+    margin-top: 20px;
   }
 
   *{
@@ -31,6 +36,9 @@
       overflow: hidden;
     }
 
+    .white{
+      color: $white;
+    }
     .progress-bar {
       background: #8781e5;
       width: 0%;

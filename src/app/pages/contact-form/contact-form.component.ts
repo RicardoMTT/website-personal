@@ -130,6 +130,14 @@ export class ContactFormComponent implements OnInit {
     })
   }
 
+  onClosedAlertExistDataInLocalStorage() {
+    this.existsDataInLocalStorage = false;
+    this.removeFormValuesFromLocalStorage();
+    if(!this.isValueChangesFormInitialized){
+      this.createFormTest();
+    }
+  }
+
   onLoadFormValuesFromLocalStorage() {
     this.loadFormValuesFromLocalStorage();
     this.existsDataInLocalStorage = false;
@@ -142,10 +150,7 @@ export class ContactFormComponent implements OnInit {
     const storedData = localStorage.getItem('testLS');
     if (storedData) {
       const formCreateConsultation = JSON.parse(storedData).prueba;
-      console.log(formCreateConsultation);
-
       const defaultColor = this.demoProduct.colors.find(item => item.code ==formCreateConsultation.genre.code);
-      console.log(defaultColor);
 
       this.contactFormFG.patchValue({
         'email':formCreateConsultation.email,
@@ -167,8 +172,6 @@ export class ContactFormComponent implements OnInit {
     let formCreateContact = JSON.parse(localStorage.getItem('testLS') || '{}');
 
     this.formChangesSubscription = this.contactFormFG.valueChanges.subscribe((value: any) => {
-      console.log(value);
-
       const defaultColor = this.demoProduct.colors.find(item => item.code ==value.genre.code);
 
       formCreateContact.prueba = {

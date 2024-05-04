@@ -28,7 +28,6 @@ export class ReposComponent implements OnInit {
     this.repoService.getFirstSixRepo().subscribe((data: any ) => {
 
       this.totalRepos = data;
-      console.log(this.totalRepos);
 
     });
   }

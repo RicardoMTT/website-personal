@@ -37,8 +37,6 @@ export class GeminiService {
 
    try {
     const result = await this.model.generateContent(prompt);
-    console.log('result',result);
-
     const response = await result.response;
     return response.text();
    } catch (error) {
