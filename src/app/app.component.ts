@@ -23,7 +23,7 @@ export class AppComponent {
   bodyText: string = "";
   welcomeMessage: string = 'test';
   public scrollHeigth = 600;
-  public efemerides: string = "";
+  public efemeridesToday: string = "";
   public day: number = 0;
   public month: string ="";
   public carouselData: ICarouselItem[] = CAROUSEL_DATA_ITEMS;
@@ -63,7 +63,7 @@ export class AppComponent {
 
     const query = `month=${month}&&day=${day}`;
     this.efemeridesService.getEventToday(query).subscribe((response) => {
-      this.efemerides = response[0].event;
+      this.efemeridesToday = response[0].event;
     });
   }
 
