@@ -65,7 +65,9 @@ export class HomeComponent implements OnInit {
   }
 
   async sendMessage(){
-
+    if (this.message.length<=0) {
+      return;
+    }
     const prompt = this.message;
     this.error = false;
     this.message = '';
@@ -75,6 +77,9 @@ export class HomeComponent implements OnInit {
       setTimeout(()=>{
         this.scrollToBottom();
       },500)
+      if (prompt.length <=0) {
+        return;
+      }
       const response = await this.geminiService.generateText(prompt)
       this.messages.push({message:response,isUser:false});
       setTimeout(()=>{
