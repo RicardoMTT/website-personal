@@ -1,5 +1,10 @@
 
 <app-header></app-header>
+
+<div class="progress-container" *ngIf="loading">
+  <div class="progress-bar"></div>
+</div>
+
   <div class="router-wrapper">
     <app-welcome [message]="efemeridesToday" [day]="day" [month]="month"></app-welcome>
   <router-outlet></router-outlet>

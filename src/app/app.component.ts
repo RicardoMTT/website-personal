@@ -1,31 +1,33 @@
 import { Component, HostListener, OnInit } from '@angular/core';
 import { TestService } from './services/test.service';
 import { Meta, Title } from '@angular/platform-browser';
-import { Subject } from 'rxjs';
+import { Subject, delay } from 'rxjs';
 import { ModalService } from './services/modal.service';
 import { EfemeridesService } from './services/efemerides.service';
 import { ICarouselItem } from './components/carousel/carousel.component';
 import { CAROUSEL_DATA_ITEMS } from './constants/carousel.const';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { GeminiService } from './services/gemini.service';
+import { LoadingService } from './services/loading.service';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.scss']
+  styleUrls: ['./app.component.scss'],
 })
 export class AppComponent {
   userInactive: Subject<any> = new Subject();
   timeoutId: any;
+  loading:boolean = false;
   todos: any[] = [];
   public showButton = false;
   public showModal = false;
-  bodyText: string = "";
+  bodyText: string = '';
   welcomeMessage: string = 'test';
   public scrollHeigth = 600;
-  public efemeridesToday: string = "";
+  public efemeridesToday: string = '';
   public day: number = 0;
-  public month: string ="";
+  public month: string = '';
   public carouselData: ICarouselItem[] = CAROUSEL_DATA_ITEMS;
   imageBlobUrl: string | ArrayBuffer | undefined;
 
@@ -34,12 +36,17 @@ export class AppComponent {
     public title: Title,
     private meta: Meta,
     private efemeridesService: EfemeridesService,
-    private geminiService:GeminiService
+    private geminiService: GeminiService,
+    private loadingService: LoadingService
   ) {
     this.geminiService.initialize('AIzaSyDLPyTK8c7Y8UxrutMNlCW6Bof8WIkklpg');
   }
 
   ngOnInit(): void {
+    this.loadingService.loadingSub.pipe(delay(0)).subscribe((loading)=>{
+      console.log(loading);
+      this.loading = loading;
+    })
     this.generateResponse();
     this.loadTodos();
     this.title.setTitle('Home page');
@@ -67,10 +74,11 @@ export class AppComponent {
     });
   }
 
-  async generateResponse(){
-    const value = await this.geminiService.generateText('Tell me the name of the Peru"s capital')
+  async generateResponse() {
+    const value = await this.geminiService.generateText(
+      'Tell me the name of the Peru"s capital'
+    );
   }
-
 
   openModal(id: string) {
     // this.modalService.open(id);
@@ -87,7 +95,7 @@ export class AppComponent {
       const todosData = await this.testService.loadTodos();
       this.todos = todosData as any;
     } catch (error) {
-      console.log('error',error);
+      console.log('error', error);
     }
   }
 
@@ -106,7 +114,7 @@ export class AppComponent {
     }, 30000);
   }
 
-  getMonthById(month : any) {
+  getMonthById(month: any) {
     switch (month) {
       case 1:
         return 'Enero';
