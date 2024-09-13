@@ -1,12 +1,9 @@
 import { Component, HostListener, OnInit } from '@angular/core';
-import { TestService } from './services/test.service';
 import { Meta, Title } from '@angular/platform-browser';
 import { Subject, delay } from 'rxjs';
-import { ModalService } from './services/modal.service';
 import { EfemeridesService } from './services/efemerides.service';
 import { ICarouselItem } from './components/carousel/carousel.component';
 import { CAROUSEL_DATA_ITEMS } from './constants/carousel.const';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { GeminiService } from './services/gemini.service';
 import { LoadingService } from './services/loading.service';
 
@@ -19,7 +16,6 @@ export class AppComponent {
   userInactive: Subject<any> = new Subject();
   timeoutId: any;
   loading:boolean = false;
-  todos: any[] = [];
   public showButton = false;
   public showModal = false;
   bodyText: string = '';
@@ -32,7 +28,6 @@ export class AppComponent {
   imageBlobUrl: string | ArrayBuffer | undefined;
 
   constructor(
-    private testService: TestService,
     public title: Title,
     private meta: Meta,
     private efemeridesService: EfemeridesService,
@@ -44,11 +39,9 @@ export class AppComponent {
 
   ngOnInit(): void {
     this.loadingService.loadingSub.pipe(delay(0)).subscribe((loading)=>{
-      console.log(loading);
       this.loading = loading;
     })
-    this.generateResponse();
-    this.loadTodos();
+
     this.title.setTitle('Home page');
     this.checkTimeOut();
     this.userInactive.subscribe((message) => {
@@ -74,12 +67,6 @@ export class AppComponent {
     });
   }
 
-  async generateResponse() {
-    const value = await this.geminiService.generateText(
-      'Tell me the name of the Peru"s capital'
-    );
-  }
-
   openModal(id: string) {
     // this.modalService.open(id);
   }
@@ -89,14 +76,6 @@ export class AppComponent {
     // this.modalService.close(id);
     clearTimeout(this.timeoutId); //resetea el setTimeout y vuelve a contar, requiere el id devuelto por el setTimeout
     this.checkTimeOut();
-  }
-  async loadTodos() {
-    try {
-      const todosData = await this.testService.loadTodos();
-      this.todos = todosData as any;
-    } catch (error) {
-      console.log('error', error);
-    }
   }
 
   //Cada vez que se mueva el mouse o se de click en alguna parte este evento limpiara el setTimeout y no se podra aun enviar el next() al observable para el alert

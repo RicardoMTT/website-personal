@@ -175,7 +175,9 @@
     }
 }
 
-// .banner__container__right:hover div{
-//     opacity: 1!important;
-//     height: 100%!important;
-// }
+.banner-title{
+  display: inline-block; /* Permite el ajuste del tamaño */
+  max-width: 100%; /* Evita que el elemento sea más ancho que su contenedor */
+  overflow-wrap: break-word; /* Permite que el texto se ajuste al contenedor */
+  // white-space: nowrap; /* Evita el salto de línea */
+}

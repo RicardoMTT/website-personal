@@ -1,18 +1,20 @@
 import { Injectable } from '@angular/core';
-import { GoogleGenerativeAI, HarmBlockThreshold, HarmCategory } from '@google/generative-ai';
+import {
+  GoogleGenerativeAI,
+  HarmBlockThreshold,
+  HarmCategory,
+} from '@google/generative-ai';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class GeminiService {
+  genIA: any;
+  model: any;
 
-  genIA:any;
-  model:any;
+  constructor() {}
 
-  constructor() { }
-
-
-  initialize(key:string, config?:any){
+  initialize(key: string, config?: any) {
     this.genIA = new GoogleGenerativeAI(key);
     const generationConfig = {
       safetySettings: [
@@ -26,24 +28,22 @@ export class GeminiService {
       top_k: 32,
       maxOutputTokens: 100, // limit output
     };
-    let model = config? config : {model: 'gemini-pro',...generationConfig};
+    let model = config ? config : { model: 'gemini-pro', ...generationConfig };
     this.model = this.genIA.getGenerativeModel(model);
   }
 
-  async generateText(prompt:string){
+  async generateText(prompt: string) {
     if (!this.model) {
       return;
     }
 
-   try {
-    const result = await this.model.generateContent(prompt);
-    const response = await result.response;
-    return response.text();
-   } catch (error) {
-    console.log(error);
-    throw new Error('No se pudo generar el texto');
+    try {
+      const result = await this.model.generateContent(prompt);
+      const response = await result.response;
+      return response.text();
+    } catch (error) {
+      console.log(error);
+      throw new Error('No se pudo generar el texto');
+    }
   }
-  }
-
-
 }

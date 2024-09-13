@@ -6,7 +6,6 @@ import { BehaviorSubject } from "rxjs";
 })
 export class LoadingService {
 
-
   loadingSub: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(false);
 
   setLoading(loading: boolean, url: string): void {
