@@ -133,7 +133,9 @@
 /*MENU HAMBURGUESA*/
 .hamburger-menu {
     // margin: 2rem;
-    margin: 1rem;
+    // margin: 1rem;
+      margin: 1rem 0; /* en vez de margin: 1rem; evita empujar lateralmente */
+
     display: flex;
     flex-flow: column wrap;
     justify-content: space-between;
@@ -177,18 +179,20 @@
 
 
 /*FIN MENU HAMBURGUESA*/
+.colapso { width: 100%; }
+// .colapso{
+//     max-height: 0;
 
-.colapso{
-    max-height: 0;
+//     overflow: visible;
+//     @media screen and (max-width:768px) {
+//         overflow: hidden;
+//     }
 
-    overflow: visible;
-    @media screen and (max-width:768px) {
-        overflow: hidden;
-    }
-
-    transition: all 0.2s ease-out;
+//     transition: all 0.2s ease-out;
+// }
+@media screen and (max-width:768px) {
+  .header__nav { width: 100%; }
 }
-
 .animate-btn:hover{
   animation: shaking 2s infinite;
 }
@@ -243,14 +247,14 @@
   height: 22px;
   position: absolute;
   left: 6px;
-  top: 10px;
+  top: 5px;
   border-radius: 50%;
   transition: transform 0.2s linear;
 }
 
 /*Cuando este checkeado que se traslade a la derecha*/
 .checkbox:checked + .checkbox-label .ball {
-  transform: translateX(24px);
+  transform: translateX(16px);
 }
 
 .noon{
