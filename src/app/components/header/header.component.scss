@@ -75,7 +75,6 @@
         }
         &__li{
             margin: 0 .5em;
-            // font-family: 'Inter';
             font-style: normal;
             font-weight: 500;
             font-size: 18px;
@@ -93,7 +92,6 @@
             transform: scale(1.1);
         }
         button{
-          // background: #FFFFFF;
           background: $primary-color;
           border: 1px solid $primary-color;
             border-radius: 6px;
@@ -108,16 +106,15 @@
                 font-style: normal;
                 font-weight: 500;
                 font-size: 18px;
-                // color: $primary-color;
-                color: #FFFFFF;
+                color: #fff;
                 margin: 0;
             }
         }
         button:hover{
             background: $primary-color;
-            border: 1px solid #FFFFFF;
+            border: 1px solid #fff;
             h3{
-                color: #FFFFFF;
+                color: #fff;
             }
         }
     }
@@ -125,24 +122,11 @@
 }
 
 .header-fixed{
-    // position: fixed;
     width: 100%;
     background-color: #fff;
 }
 
-/*MENU HAMBURGUESA*/
-.hamburger-menu {
-    // margin: 2rem;
-    // margin: 1rem;
-      margin: 1rem 0; /* en vez de margin: 1rem; evita empujar lateralmente */
 
-    display: flex;
-    flex-flow: column wrap;
-    justify-content: space-between;
-    height: 2.5rem;
-    width: 2.5rem;
-    cursor: pointer;
-  }
   .bar-top,
   .bar-middle,
   .bar-bottom {
@@ -155,30 +139,24 @@
   }
 
   .active {
-    .bar-top {
-      transform: rotate(40deg);
-    }
+    .bar-top { transform: rotate(40deg); }
+    .bar-middle { transform: translateX(1rem); opacity: 0; }
+    .bar-bottom { transform: rotate(-39deg); }
   }
-  .active {
-    .bar-middle {
-      transform: translateX(1rem);
-      opacity: 0;
-    }
-  }
-  .active {
-    .bar-bottom {
-      transform: rotate(-39deg);
-    }
-  }
-  .hamburger-menu{
+
+  .hamburger-menu {
+    margin: 1rem 0;
     display: none;
+    flex-flow: column wrap;
+    justify-content: space-between;
+    height: 2.5rem;
+    width: 2.5rem;
+    cursor: pointer;
     @media screen and (max-width:768px) {
-        display: flex;
+      display: flex;
     }
-}
 
-
-/*FIN MENU HAMBURGUESA*/
+  }
 .colapso { width: 100%; }
 .colapso{
     max-height: 0;
@@ -197,23 +175,12 @@
   animation: shaking 2s infinite;
 }
 @keyframes shaking{
-  10%{
-    transform: scale(1.05) rotate(5deg); // para que gire 5gradoso
-  }
-  20%{
-    transform: scale(1.05) rotate(-5deg);// para que gire -5 grados
-  }
-  30%{
-    transform: scale(1.05) rotate(5deg); // para que gire 5 grados
-  }
-  40%{
-    transform: none;//desaparecer
-  }
+  10%{ transform: scale(1.05) rotate(5deg); }
+  20%{ transform: scale(1.05) rotate(-5deg); }
+  30%{ transform: scale(1.05) rotate(5deg); }
+  40%{ transform: none; }
 }
 
-/*
-  Toggle
-*/
 .container-toggle{
   position: relative;
   width: 80px;
@@ -256,7 +223,6 @@
   transition: transform 0.2s linear;
 }
 
-/*Cuando este checkeado que se traslade a la derecha*/
 .checkbox:checked + .checkbox-label .ball {
   transform: translateX(16px);
 }
@@ -268,6 +234,4 @@
     right: 4px;
   }
 }
-/*
-  End Toggle
-*/
+
