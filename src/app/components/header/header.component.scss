@@ -180,16 +180,16 @@
 
 /*FIN MENU HAMBURGUESA*/
 .colapso { width: 100%; }
-// .colapso{
-//     max-height: 0;
+.colapso{
+    max-height: 0;
 
-//     overflow: visible;
-//     @media screen and (max-width:768px) {
-//         overflow: hidden;
-//     }
+    overflow: visible;
+    @media screen and (max-width:768px) {
+        overflow: hidden;
+    }
 
-//     transition: all 0.2s ease-out;
-// }
+    transition: all 0.2s ease-out;
+}
 @media screen and (max-width:768px) {
   .header__nav { width: 100%; }
 }
@@ -229,8 +229,12 @@
 
 .checkbox-label {
   background-color: rgb(43, 39, 38);
-  width: 50px;
+  width: 62px;
   height: 32px;
+  @media screen and (max-width:768px) {
+    width: 58px;
+    height: 32px;
+  }
   border-radius: 50px;
   position: relative;
   padding: 5px;
@@ -246,7 +250,7 @@
   width: 22px;
   height: 22px;
   position: absolute;
-  left: 6px;
+  left: 8px;
   top: 5px;
   border-radius: 50%;
   transition: transform 0.2s linear;
@@ -259,7 +263,10 @@
 
 .noon{
   position: relative;
-  right: 2px;
+  right: 7px;
+   @media screen and (max-width:768px) {
+    right: 4px;
+  }
 }
 /*
   End Toggle
