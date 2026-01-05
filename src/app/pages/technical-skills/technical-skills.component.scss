@@ -24,7 +24,7 @@
             &__logo{
                 &__main{
                     &__bg{
-                        margin: 20px 40px;
+                        margin: 20px auto;
                         width: 150px;
                         height: 150px;
                         display: flex;
@@ -35,12 +35,20 @@
                         i{
                             color: $primary-color;
                         }
+
+                        // svg, i{
+                        //     width: 60px; 
+                        //     height: 60px;
+                        //     color: $primary-color;
+                        // }
                     }
                 }
             }
             &__text{
+                width: 100%; // Añade esto
                 display: flex;
                 flex-direction: column;
+                align-items: center;
                 strong{
                     // font-family: 'Inter';
                     font-style: normal;
